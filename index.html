@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Little Apology for You 💗</title>
+
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+ margin:0;
+ font-family:"Trebuchet MS",Arial,sans-serif;
+ color:#99516d;
+ text-align:center;
+ background:linear-gradient(150deg,#fff3f7,#ffdce8,#ffb9d0);
+ overflow-x:hidden
+}
+button{font:inherit;cursor:pointer}
+section{padding:65px 18px;position:relative}
+h1,h2{color:#a44d70}
+h2{font-size:27px}
+p{line-height:1.8}
+.hero{min-height:100vh;display:flex;align-items:center;
+ justify-content:center;flex-direction:column;padding:30px 18px}
+.cartoon{font-size:90px;animation:bounce 2s infinite}
+@keyframes bounce{50%{transform:translateY(-12px)}}
+.card{
+ background:rgba(255,255,255,.8);
+ border:1px solid rgba(255,255,255,.9);
+ border-radius:25px;padding:27px 20px;
+ box-shadow:0 12px 35px #d96f9520;
+ max-width:600px;width:100%;margin:18px auto
+}
+.btn{
+ border:0;border-radius:35px;padding:14px 25px;
+ margin:7px;background:#f47fa9;color:white;
+ box-shadow:0 5px 15px #e98aa644
+}
+.btn.blue{background:#8dcce3}
+.btn:active{transform:scale(.96)}
+.heart{position:fixed;top:-30px;pointer-events:none;
+ animation:fall linear forwards;z-index:0;opacity:.7}
+@keyframes fall{to{transform:translateY(110vh) rotate(360deg)}}
+section>*{position:relative;z-index:1}
+.progress{
+ position:fixed;top:12px;right:12px;background:#ffffffd9;
+ border-radius:30px;padding:10px 15px;z-index:10;
+ box-shadow:0 3px 15px #d76b9020
+}
+.bar{height:6px;background:#f5c6dc;border-radius:8px;
+ margin-top:6px;width:100px;overflow:hidden}
+.fill{height:100%;width:0;background:linear-gradient(90deg,#ff6e9e,#c68cff);
+ transition:width .4s}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+ gap:12px;max-width:650px;margin:25px auto}
+.flip{min-height:150px;border:0;background:transparent;
+ perspective:800px;padding:0;color:#99516d}
+.flipinner{position:relative;width:100%;height:150px;
+ transition:transform .6s;transform-style:preserve-3d}
+.flip.open .flipinner{transform:rotateY(180deg)}
+.front,.back{position:absolute;inset:0;display:flex;
+ align-items:center;justify-content:center;flex-direction:column;
+ padding:13px;border-radius:20px;backface-visibility:hidden;
+ background:#ffffffd9;box-shadow:0 8px 22px #d96f9520;
+ font-size:14px}
+.front b{font-size:35px;margin-bottom:10px}
+.back{transform:rotateY(180deg);background:#f9c5db}
+.gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+ gap:12px;max-width:600px;margin:25px auto}
+.photo{background:white;padding:9px;border-radius:9px;
+ box-shadow:0 6px 15px #c95f8520}
+.photo img{width:100%;aspect-ratio:1/1;object-fit:cover;
+ border-radius:5px}
+.photo input{width:100%;font-size:11px;margin-top:9px}
+.reason{background:#ffffffbd;border-radius:20px;
+ padding:17px;margin:12px auto;max-width:560px;text-align:left}
+.num{display:inline-flex;background:#f18aae;color:white;
+ width:30px;height:30px;border-radius:50%;align-items:center;
+ justify-content:center;margin-right:8px}
+.promise{background:#fff0df;border-radius:14px;padding:20px;
+ margin:12px auto;max-width:440px;transform:rotate(-1deg)}
+.promise:nth-child(even){background:#e8e2ff;transform:rotate(1deg)}
+.letter{display:none;white-space:pre-line;text-align:center;
+ line-height:2;background:#fff5f6;border-radius:22px;
+ padding:25px 18px;margin:20px auto;max-width:560px}
+.letter.show{display:block;animation:appear .8s}
+@keyframes appear{from{opacity:0;transform:translateY(15px)}
+ to{opacity:1;transform:translateY(0)}}
+.small{font-size:13px;color:#bd8299}
+footer{padding:30px;font-size:13px}
+@media(min-width:600px){
+ .grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .gallery{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+</style>
+</head>
+
+<body>
+
+<div class="progress">
+ 💗
+ <div class="bar"><div class="fill" id="fill"></div></div>
+</div>
+
+<div class="hero">
+ <div class="cartoon">🐱 💗 🐭</div>
+ <p>TO MY FAVOURITE PERSON</p>
+ <div class="card">
+  <h1>I'm really sorry... 🥺</h1>
+  <p>I never wanted to hurt you.</p>
+  <p>You mean so much to me. 💗</p>
+  <h3>Will you hear me out? 🥹</h3>
+  <button class="btn" onclick="document.querySelector('#love').scrollIntoView()">Yes 💕</button>
+  <button class="btn blue" onclick="this.textContent='Take your time 🩷';document.querySelector('#love').scrollIntoView()">I need time 🥺</button>
+ </div>
+ <p class="small">A little letter from my heart 💌</p>
+ <span>⬇️ Scroll down for more</span>
+</div>
+
+<section id="love">
+ <h2>Things I Love About You 💕</h2>
+ <p>Tap each card to discover what's in my heart 🥹</p>
+ <div class="grid">
+  <button class="flip" onclick="flip(this)">
+   <div class="flipinner"><div class="front"><b>💗</b>Your heart</div>
+   <div class="back">Your kindness makes you so special to me. ❤️</div></div>
+  </button>
+  <button class="flip" onclick="flip(this)">
+   <div class="flipinner"><div class="front"><b>✨</b>Your smile</div>
+   <div class="back">Your smile can brighten even my hardest days. 🥹</div></div>
+  </button>
+  <button class="flip" onclick="flip(this)">
+   <div class="flipinner"><div class="front"><b>🐭</b>Your little ways</div>
+   <div class="back">Even the little things about you mean so much to me.</div></div>
+  </button>
+  <button class="flip" onclick="flip(this)">
+   <div class="flipinner"><div class="front"><b>🌷</b>Your care</div>
+   <div class="back">I appreciate the love and care you give.</div></div>
+  </button>
+  <button class="flip" onclick="flip(this)">
+   <div class="flipinner"><div class="front"><b>🧀</b>Our moments</div>
+   <div class="back">Our memories are precious to me. 💗</div></div>
+  </button>
+  <button class="flip" onclick="flip(this)">
+   <div class="flipinner"><div class="front"><b>❤️</b>Simply you</div>
+   <div class="back">I love the person you are, not just what you do for me.</div></div>
+  </button>
+ </div>
+</section>
+
+<section id="memories">
+ <h2>Our Little Moments 📸</h2>
+ <p>Choose photos from your phone to add your own memories.</p>
+ <div class="gallery">
+  <div class="photo"><img id="p1" alt="Our memory" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Crect width='100%25' height='100%25' fill='%23ffd9e8'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' font-size='55' dominant-baseline='middle'%3E%F0%9F%90%B1%3C/text%3E%3C/svg%3E"><input type="file" accept="image/*" onchange="photo(this,'p1')"></div>
+  <div class="photo"><img id="p2" alt="Our memory" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Crect width='100%25' height='100%25' fill='%23f8d9ff'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' font-size='55' dominant-baseline='middle'%3E%F0%9F%90%AD%3C/text%3E%3C/svg%3E"><input type="file" accept="image/*" onchange="photo(this,'p2')"></div>
+  <div class="photo"><img id="p3" alt="Our memory" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Crect width='100%25' height='100%25' fill='%23ffe9ce'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' font-size='55' dominant-baseline='middle'%3E%F0%9F%92%97%3C/text%3E%3C/svg%3E"><input type="file" accept="image/*" onchange="photo(this,'p3')"></div>
+ </div>
+ <p class="small">Photo previews are temporary until you publish photos with the website.</p>
+</section>
+
+<section id="sorry">
+ <h2>Why I'm Truly Sorry 🥺</h2>
+ <p>Every word comes from the bottom of my heart.</p>
+ <div class="reason">💗 I should have listened to your feelings more carefully.</div>
+ <div class="reason">🥺 I never wanted to make you feel hurt or unappreciated.</div>
+ <div class="reason">❤️ I take responsibility for the mistakes I made.</div>
+ <div class="reason">🌷 I want to learn from this and become a better person.</div>
+ <div class="reason">🫶 I won't take your trust or your feelings for granted.</div>
+</section>
+
+<section id="promises">
+ <h2>My Promises to You 🤞💕</h2>
+ <p>Promises mean something only when actions follow.</p>
+ <div class="promise">📌 I promise to listen with my whole heart. 💗</div>
+ <div class="promise">📌 I promise to be more patient and understanding. 🌸</div>
+ <div class="promise">📌 I promise to respect your feelings and boundaries. 🫶</div>
+ <div class="promise">📌 I promise to work on my mistakes through my actions. ❤️</div>
+ <div class="promise">📌 I promise to appreciate you and never take you for granted. 🥹</div>
+</section>
+
+<section id="letter">
+ <h2>A Letter Just for You 💌</h2>
+ <div class="card" onclick="openLetter()" style="cursor:pointer">
+  <div style="font-size:60px">💌</div>
+  <h3>Tap to open your letter</h3>
+  <p>Something I want you to know... 🥺</p>
+ </div>
+ <div class="letter" id="secret">
+Hey, my favourite person... 💗
+
+I know words can't undo what happened, and I'm genuinely sorry for the hurt I caused you.
+
+You mean so much to me. I never want my apology to be just words that sound beautiful today and are forgotten tomorrow.
+
+I want to learn to listen better, understand your feelings, respect your boundaries, and show you through my actions that I mean what I say.
+
+I know you may need time, and I respect that. You don't owe me immediate forgiveness. Your feelings matter, and I want to give you the space you need.
+
+I'm sorry for my mistakes. I want to become a better person, not only for us, but because doing the right thing matters.
+
+Thank you for the beautiful moments we've shared and for the person you are.
+
+No matter how long it takes, I want my actions to speak louder than my promises.
+
+With all my heart... ❤️
+
+— Someone who is truly sorry 🥺
+ </div>
+</section>
+
+<section>
+ <div class="cartoon">🐱 💌 🐭</div>
+ <h2>One Last Thing... ❤️</h2>
+ <div class="card">
+  <p>I can't change the past, but I can learn from it.</p>
+  <p>I hope that, with time and consistent actions, I can show you how sincerely I mean this apology. 🥹</p>
+  <h3>Take all the time you need. 💗</h3>
+ </div>
+ <button class="btn" onclick="window.scrollTo({top:0,behavior:'smooth'})">Read Again 💕</button>
+</section>
+
+<footer>Made with a sincere heart 💗<br>🐱 Tom & Jerry inspired 🐭</footer>
+
+<script>
+function flip(el){
+ el.classList.toggle('open');
+ updateProgress();
+}
+function openLetter(){
+ document.getElementById('secret').classList.toggle('show');
+ updateProgress();
+}
+function photo(input,id){
+ if(!input.files||!input.files[0])return;
+ const reader=new FileReader();
+ reader.onload=e=>document.getElementById(id).src=e.target.result;
+ reader.readAsDataURL(input.files[0]);
+}
+function updateProgress(){
+ const max=document.documentElement.scrollHeight-innerHeight;
+ const scroll=max>0?scrollY/max*100:0;
+ document.getElementById('fill').style.width=Math.min(100,scroll)+'%';
+}
+window.addEventListener('scroll',updateProgress);
+function makeHeart(){
+ const el=document.createElement('div');
+ el.className='heart';
+ el.textContent=['💗','💕','🐾','🌸','❤️','✨'][Math.floor(Math.random()*6)];
+ el.style.left=Math.random()*100+'vw';
+ el.style.animationDuration=(7+Math.random()*6)+'s';
+ el.style.fontSize=(14+Math.random()*15)+'px';
+ document.body.appendChild(el);
+ setTimeout(()=>el.remove(),14000);
+}
+setInterval(makeHeart,650);
+updateProgress();
+</script>
+
+</body>
+</html>
